@@ -1,0 +1,25 @@
+{
+  "name": "demo-lit",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Demo app built with Lit, CoffeeScript and Vite",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "check": "coffee --compile --bare --output /tmp/demo-lit-coffee-check src",
+    "verify": "npm run check && npm test && npm run build"
+  },
+  "dependencies": {
+    "lit": "^3.2.1"
+  },
+  "devDependencies": {
+    "coffeescript": "^2.7.0",
+    "happy-dom": "^21.0.4",
+    "vite": "^6.0.7",
+    "vitest": "^5.0.5"
+  }
+}

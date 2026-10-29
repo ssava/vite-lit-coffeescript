@@ -1,0 +1,79 @@
+:root {
+  color-scheme: dark;
+
+  --bg: #0a0c12;
+  --bg-glow: #1d2547;
+  --surface: rgba(255, 255, 255, 0.045);
+  --surface-strong: rgba(255, 255, 255, 0.075);
+  --border: rgba(255, 255, 255, 0.1);
+  --text: #e9ecf5;
+  --muted: #8b93a7;
+  --accent: #ffdd57;
+  --accent-ink: #1a1408;
+  --accent-2: #7c9cff;
+  --shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+  --radius: 20px;
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+
+  --bg: #f6f4ef;
+  --bg-glow: #ffe9b0;
+  --surface: rgba(255, 255, 255, 0.72);
+  --surface-strong: #ffffff;
+  --border: rgba(20, 24, 40, 0.12);
+  --text: #171a24;
+  --muted: #5d6579;
+  --accent: #8a5a2b;
+  --accent-ink: #fff8ec;
+  --accent-2: #3b5bdb;
+  --shadow: 0 20px 50px rgba(30, 25, 10, 0.14);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(1200px 600px at 15% -10%, color-mix(in oklab, var(--bg-glow) 55%, transparent), transparent 70%),
+    radial-gradient(900px 500px at 110% 10%, color-mix(in oklab, var(--accent-2) 22%, transparent), transparent 65%),
+    var(--bg);
+  background-attachment: fixed;
+  transition: background-color 0.35s var(--ease), color 0.35s var(--ease);
+  -webkit-font-smoothing: antialiased;
+}
+
+demo-app {
+  display: block;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 56px 24px 80px;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

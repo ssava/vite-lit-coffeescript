@@ -1,0 +1,109 @@
+:host {
+  display: block;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface-strong);
+  transition: border-color 0.18s var(--ease), opacity 0.18s var(--ease);
+}
+
+.row:hover {
+  border-color: color-mix(in oklab, var(--accent) 45%, var(--border));
+}
+
+.check {
+  position: relative;
+  display: grid;
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.check input {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.box {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border: 1.5px solid var(--muted);
+  border-radius: 6px;
+  transition: background 0.18s var(--ease), border-color 0.18s var(--ease);
+}
+
+.check input:checked + .box {
+  border-color: var(--accent);
+  background: var(--accent);
+}
+
+.check input:checked + .box::after {
+  content: '';
+  display: block;
+  width: 10px;
+  height: 5px;
+  margin: 4px 0 0 4px;
+  border-bottom: 2px solid var(--accent-ink);
+  border-left: 2px solid var(--accent-ink);
+  transform: rotate(-45deg);
+}
+
+.check input:focus-visible + .box {
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 30%, transparent);
+}
+
+.text {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  font-size: 0.93rem;
+  transition: color 0.18s var(--ease);
+}
+
+.row.done .text {
+  color: var(--muted);
+  text-decoration: line-through;
+  text-decoration-color: color-mix(in oklab, var(--accent) 65%, transparent);
+}
+
+.row.done {
+  opacity: 0.7;
+}
+
+.remove {
+  flex: 0 0 auto;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.18s var(--ease), background 0.18s, color 0.18s;
+}
+
+.row:hover .remove,
+.remove:focus-visible {
+  opacity: 1;
+}
+
+.remove:hover {
+  background: color-mix(in oklab, #ff5d5d 18%, transparent);
+  color: #ff7d7d;
+}
